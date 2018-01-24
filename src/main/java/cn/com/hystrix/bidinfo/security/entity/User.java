@@ -5,13 +5,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Set;
+import java.util.List;
+import java.util.Objects;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity
+@Entity(name = "User")
 @Data
 public class User implements UserDetails {
 
@@ -35,11 +36,8 @@ public class User implements UserDetails {
 
     private Boolean enable;
 
-    @ManyToMany(cascade=CascadeType.PERSIST,fetch=FetchType.EAGER)
-    @JoinTable(name="user_role",
-            joinColumns={@JoinColumn(name="user_id")},
-            inverseJoinColumns={@JoinColumn(name="role_id")})
-    private Set<Role> roles;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    private List<Role> roles = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -74,5 +72,22 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return enable;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        User that = (User) obj;
+        return Objects.equals(this.id, that.id);
     }
 }

@@ -1,6 +1,6 @@
 package cn.com.hystrix.bidinfo.security.service;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.UserDetailsManager;
 
-public interface UserService extends UserDetailsService{
+public interface UserService extends UserDetailsManager {
 }
