@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<body>
+<th:block layout:fragment="page-content">
+    <table>
+        <tbody>
+        <tr th:each="authority: ${AuthorityList}">
+            <td th:text="${authority.name}">Oranges</td>
+            <td th:text="${authority.id}">0.99</td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+</body>
+</html>
