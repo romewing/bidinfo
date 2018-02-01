@@ -22,7 +22,8 @@ public class Role implements GrantedAuthority {
     private String description;
 
 
-    // private Set<Authority> authorities;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    private List<Authority> authorities = new ArrayList<>();
 
     @ManyToMany(mappedBy = "roles")
     private List<User> users = new ArrayList<>();
@@ -47,5 +48,9 @@ public class Role implements GrantedAuthority {
         }
         Role that = (Role) obj;
         return Objects.equals(this.id, that.id);
+    }
+
+    public String toString() {
+        return "角色ID:"+id;
     }
 }

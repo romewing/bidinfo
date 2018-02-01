@@ -63,7 +63,7 @@
         <div class="navbar-header pull-left">
             <a href="index.html" class="navbar-brand">
                 <small>
-                    <i class="fa fa-leaf"></i>
+                    <i class="fa fa-leaf" th:text="${name}"></i>
                     Ace Admin
                 </small>
             </a>
@@ -367,6 +367,34 @@
         </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
+            <li th:each="authority: ${AuthorityList}">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-tachometer"></i>
+                    <span class="menu-text" th:text="${authority.name}"> Dashboard </span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+                <ul class="submenu">
+                    <li class="">
+                        <a href="tables.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           招标公告
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a href="tables.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           中标公示
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+
+            </li>
             <li class="">
                 <a href="index.html">
                     <i class="menu-icon fa fa-tachometer"></i>
@@ -400,7 +428,7 @@
                         <b class="arrow"></b>
 
                         <ul class="submenu">
-                            <li class="">
+                            <li class="active">
                                 <a href="top-menu.html">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     Top Menu
@@ -856,6 +884,14 @@
         <div class="main-content-inner">
             <div id="sidebar2" class="sidebar h-sidebar navbar-collapse collapse ace-save-state">
                 <ul class="nav nav-list">
+                    <li th:each="authority: ${AuthorityList}" class="hover">
+                        <a href="#">
+                            <i class="menu-icon fa fa-tachometer"></i>
+                            <span class="menu-text" th:text="${authority.name}"> Dashboard </span>
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
                     <li class="hover">
                         <a href="#">
                             <i class="menu-icon fa fa-tachometer"></i>

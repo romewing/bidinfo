@@ -2,23 +2,30 @@ package cn.com.hystrix.bidinfo.security.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
 @Data
+@Entity
 public class Authority implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     private String name;
 
+    private String url;
+
+    private String icon;
+
+    private String description;
+
+    private Integer type;
+
     private Integer sort;
 
+    @ManyToOne
     private Authority parent;
+
 }

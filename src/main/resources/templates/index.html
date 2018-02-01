@@ -4,7 +4,14 @@
       layout:decorate="~{layouts/layout}">
 <body>
 <th:block layout:fragment="page-content">
-    <div>heello</div>
+    <table>
+        <tbody>
+        <tr th:each="authority: ${AuthorityList}">
+            <td th:text="${authority.name}">Oranges</td>
+            <td th:text="${authority.id}">0.99</td>
+        </tr>
+        </tbody>
+    </table>
 </th:block>
 </body>
 </html>
