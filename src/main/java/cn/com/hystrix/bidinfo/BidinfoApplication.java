@@ -1,10 +1,12 @@
 package cn.com.hystrix.bidinfo;
 
+import cn.com.hystrix.bidinfo.elasticsearch.ElasticsearchListener;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,7 +16,7 @@ import org.thymeleaf.spring4.view.ThymeleafView;
 public class BidinfoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BidinfoApplication.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(BidinfoApplication.class, args);
 	}
 
 	@Bean(name="page-content")

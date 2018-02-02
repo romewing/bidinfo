@@ -14,10 +14,11 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/assets/**").permitAll()
+        http.authorizeRequests().antMatchers("/assets/**", "/market/**").permitAll()
                 .anyRequest().fullyAuthenticated()
                 .and().formLogin().loginPage("/").failureUrl("/?error").defaultSuccessUrl("/index").permitAll()
-                .and().logout().permitAll();
+                .and().logout().permitAll()
+                .and().csrf().disable();
     }
 
 

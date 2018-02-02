@@ -29,12 +29,13 @@ public class LoginController {
     public String name;
 
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/", produces = "text/html")
     public String login(Model model) {
         model.addAttribute("name",name);
 
         return "login";
     }
+
 
     @RequestMapping("/index")
     public String index() {
