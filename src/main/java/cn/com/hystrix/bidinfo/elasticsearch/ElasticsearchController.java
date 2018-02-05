@@ -48,6 +48,7 @@ public class ElasticsearchController {
                 BidedNotice bidedNotice = new BidedNotice();
                 try {
                     copyProperties(bidedNotice, map);
+                    bidedNotice.setOwnerPhone((String) map.get("owner_phone"));
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 } catch (InvocationTargetException e) {
