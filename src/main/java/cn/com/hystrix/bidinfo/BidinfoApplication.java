@@ -9,10 +9,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.thymeleaf.spring4.view.ThymeleafView;
 
 @SpringBootApplication
+@EnableSpringDataWebSupport
 public class BidinfoApplication {
 
 	public static void main(String[] args) {

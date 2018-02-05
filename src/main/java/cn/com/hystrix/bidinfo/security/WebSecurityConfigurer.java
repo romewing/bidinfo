@@ -18,6 +18,7 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .anyRequest().fullyAuthenticated()
                 .and().formLogin().loginPage("/").failureUrl("/?error").defaultSuccessUrl("/index").permitAll()
                 .and().logout().permitAll()
+             //   ;
                 .and().csrf().disable();
     }
 
